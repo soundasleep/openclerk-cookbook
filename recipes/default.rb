@@ -32,9 +32,9 @@ mysql_database node['openclerk']['database'] do
 end
 
 mysql_database_user node['openclerk']['db_username'] do
-  connection (
-    :host     => 'localhost'
-    :username => 'root'
+  connection(
+    :host     => 'localhost',
+    :username => 'root',
     :password => node['mysql']['server_root_password']
   )
   password node['openclerk']['db_password']

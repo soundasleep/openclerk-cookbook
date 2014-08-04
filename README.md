@@ -1,9 +1,22 @@
 openclerk Cookbook
 ==================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef client. *NOTE* The recipes in this cookbook are not completed yet, following the [Openclerk installation instructions](https://github.com/soundasleep/openclerk/blob/master/INSTALL.md):
+
+### Completed
+
+* Install and configure apache, PHP, mysql
+
+### Still to complete
+
+* Download latest Openclerk source code
+* Initialise MySQL database
+* Configure `config.php` as necessary
+* Install and configure Grunt, Composer
+* Build application with `grunt build`
+* Setup default cron jobs
+
+See also [openclerk-chef](https://github.com/soundasleep/openclerk-chef) which provides a complete Chef repository and installation instructions that use this cookbook directly.
 
 Requirements
 ------------

@@ -19,5 +19,5 @@ apache_site "default" do
 end
 
 cookbook_file "phpinfo.php" do
-  path "/var/www"
+  path "/var/www/phpinfo.php"
 end

@@ -21,3 +21,25 @@ end
 cookbook_file "phpinfo.php" do
   path "/var/www/phpinfo.php"
 end
+
+mysql_database node['openclerk']['database'] do
+  connection(
+    :host     => 'localhost',
+    :username => 'root',
+    :password => node['mysql']['server_root_password']
+  )
+  action :create
+end
+
+mysql_database_user node['openclerk']['db_username'] do
+  connection (
+    :host     => 'localhost'
+    :username => 'root'
+    :password => node['mysql']['server_root_password']
+  )
+  password node['openclerk']['db_password']
+  database_name node['openclerk']['database']
+  privileges [:select, :update, :insert, :create, :delete]
+  action :grant
+end
+

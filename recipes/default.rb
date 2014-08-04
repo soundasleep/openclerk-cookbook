@@ -14,6 +14,9 @@ include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "apache2::mod_php5"
 
+# necessary for mysql_database*
+include_recipe "mysql::ruby"
+
 apache_site "default" do
   enable true
 end

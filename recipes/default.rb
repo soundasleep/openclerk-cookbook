@@ -95,3 +95,5 @@ grunt_cookbook_grunt node['openclerk']['path'] do
   action :task
   task "build"
 end
+
+include_recipe "chef-bundler::install"

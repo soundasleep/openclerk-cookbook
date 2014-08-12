@@ -15,8 +15,8 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 
 ### Still to complete
 
-* Build application with `grunt build`
 * Install Ruby and sass (for CSS building)
+* Build application with `grunt build`
 * Initialise MySQL database
 * Configure `config.php` as necessary
 * Setup default cron jobs

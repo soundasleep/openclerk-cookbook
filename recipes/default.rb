@@ -13,7 +13,6 @@ include_recipe "mysql::server"
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "apache2::mod_php5"
-include_recipe "composer"
 
 # necessary for mysql_database*
 include_recipe "database::mysql"
@@ -70,7 +69,7 @@ web_app "openclerk" do
   server_name node['openclerk']['server_name']
 end
 
-# install our own local composer
+# install our own local composer, replaces include_recipe 'composer' which uses 'admin' group (which doesn't exist)
 composer node['openclerk']['path'] do
   global false
   owner "root"
@@ -79,5 +78,7 @@ composer node['openclerk']['path'] do
 end
 
 composer_package node['openclerk']['path'] do
+  user "root"
+  group "root"
   action :install
 end

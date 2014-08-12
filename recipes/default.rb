@@ -14,8 +14,7 @@ include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "apache2::mod_php5"
 include_recipe "nodejs"
-include_recipe "grunt::install_grunt_prereq"
-include_recipe "grunt::install_grunt_cli"
+include_recipe "grunt_cookbook"
 
 # necessary for mysql_database*
 include_recipe "database::mysql"

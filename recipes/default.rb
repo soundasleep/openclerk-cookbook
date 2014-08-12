@@ -70,9 +70,14 @@ web_app "openclerk" do
   server_name node['openclerk']['server_name']
 end
 
+# install our own local composer
 composer node['openclerk']['path'] do
-  global true
+  global false
   owner "root"
   group "root"
+  action :install
+end
+
+composer_package node['openclerk']['path'] do
   action :install
 end

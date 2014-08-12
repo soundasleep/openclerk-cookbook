@@ -18,7 +18,7 @@ include_recipe "apache2::mod_php5"
 include_recipe "database::mysql"
 
 apache_site "default" do
-  enable true
+  enable false
 end
 
 cookbook_file "phpinfo.php" do
@@ -61,4 +61,10 @@ subversion "Openclerk" do
   revision "HEAD"
   destination node['openclerk']['path']
   action :sync
+end
+
+apache_site "openclerk" do
+  template "site.conf.erb"
+  docroot node['openclerk']['path'] + "/site"
+  server_name node['openclerk']['server_name']
 end

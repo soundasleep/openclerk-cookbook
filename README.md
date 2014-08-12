@@ -5,11 +5,14 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 
 ### Completed
 
-* Install and configure apache, PHP, mysql
+* Install and configure apache
+* Install and configure PHP
+* Install and configure mysql
+* Download latest Openclerk source code
 
 ### Still to complete
 
-* Download latest Openclerk source code
+* Set up Apache vhost
 * Initialise MySQL database
 * Configure `config.php` as necessary
 * Install and configure Grunt, Composer

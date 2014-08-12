@@ -84,3 +84,14 @@ composer_package node['openclerk']['path'] do
   group "root"
   action :install
 end
+
+# install npm dependencies
+grunt_cookbook_npm node['openclerk']['path'] do
+  action :install
+end
+
+# and build with grunt
+grunt_cookbook_grunt node['openclerk']['path'] do
+  action :task
+  task "build"
+end

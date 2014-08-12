@@ -63,7 +63,7 @@ subversion "Openclerk" do
   action :sync
 end
 
-apache_site "openclerk" do
+web_app "openclerk" do
   template "site.conf.erb"
   docroot node['openclerk']['path'] + "/site"
   server_name node['openclerk']['server_name']

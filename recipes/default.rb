@@ -46,3 +46,19 @@ mysql_database_user node['openclerk']['db_username'] do
   action :grant
 end
 
+directory node['openclerk']['path'] do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  recursive true
+end
+
+package "subversion"
+
+subversion "Openclerk" do
+  repository "http://openclerk.googlecode.com/svn/trunk/"
+  revision "HEAD"
+  destination node['openclerk']['path']
+  action :sync
+end

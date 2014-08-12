@@ -85,6 +85,12 @@ composer_package node['openclerk']['path'] do
   action :install
 end
 
+gem_package "bundler" do
+  action :install
+end
+
+include_recipe "chef-bundler::install"
+
 # install npm dependencies
 grunt_cookbook_npm node['openclerk']['path'] do
   action :install
@@ -95,5 +101,3 @@ grunt_cookbook_grunt node['openclerk']['path'] do
   action :task
   task "build"
 end
-
-include_recipe "chef-bundler::install"

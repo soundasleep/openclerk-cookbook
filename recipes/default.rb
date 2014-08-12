@@ -72,5 +72,7 @@ end
 
 composer node['openclerk']['path'] do
   global true
+  owner "root"
+  group "root"
   action :install
 end

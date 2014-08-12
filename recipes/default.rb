@@ -13,6 +13,7 @@ include_recipe "mysql::server"
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "apache2::mod_php5"
+include_recipe "composer"
 
 # necessary for mysql_database*
 include_recipe "database::mysql"
@@ -67,4 +68,9 @@ web_app "openclerk" do
   template "site.conf.erb"
   docroot node['openclerk']['path'] + "/site"
   server_name node['openclerk']['server_name']
+end
+
+composer node['openclerk']['path'] do
+  global true
+  action :install
 end

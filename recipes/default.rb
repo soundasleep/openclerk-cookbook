@@ -124,3 +124,13 @@ template node['openclerk']['path'] + "/config/config.php" do
   group 'root'
   variables node['openclerk']
 end
+
+cookbook_file ".htaccess.patch" do
+  path node['openclerk']['path'] + "/.htaccess.path"
+end
+
+# TODO if this patch fails on the second go, delete site/.htaccess before subversion sync
+cmd = "patch --force site/.htaccess .htaccess.patch"
+execute cmd do
+  cwd node['openclerk']['path']
+end

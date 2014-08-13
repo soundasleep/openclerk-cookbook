@@ -63,11 +63,6 @@ end
 
 package "subversion"
 
-# reset any changes to .htaccess before svn sync
-file node['openclerk']['path'] + "/site/.htaccess" do
-  action :delete
-end
-
 subversion "Openclerk" do
   repository "http://openclerk.googlecode.com/svn/trunk/"
   revision "HEAD"
@@ -132,6 +127,12 @@ end
 
 cookbook_file ".htaccess.patch" do
   path node['openclerk']['path'] + "/.htaccess.patch"
+end
+
+# reset any changes to .htaccess
+cmd = "svn revert site/.htaccess"
+execute cmd do
+  cwd node['openclerk']['path']
 end
 
 cmd = "patch --force site/.htaccess .htaccess.patch"

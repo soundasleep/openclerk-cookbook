@@ -7,8 +7,8 @@
 function get_site_config_ext() {
   return array(
     // framework-specific
-    "site_name" => "Openclerk",
-    "site_email" => "support@example.com",
+    "site_name" => "<%= @site_name %>",
+    "site_email" => "<%= @site_email %>",
     "openid_host" => "<%= @server_remote_name %>",
     "absolute_url" => "http://<%= @server_remote_name %>/",
 
@@ -17,15 +17,15 @@ function get_site_config_ext() {
     "database_password" => "<%= @db_password %>",
     "database_timezone" => false,
 
-    "phpmailer_host" => "mail.example.com",
-    "phpmailer_username" => "user",
-    "phpmailer_password" => "password",
-    "phpmailer_from" => "support@example.com",
-    "phpmailer_from_name" => "Openclerk",
-    "phpmailer_reply_to" => "support@example.com",
-    "phpmailer_bcc" => "support@example.com",   // if set, send a copy of all emails to this address
+    "phpmailer_host" => "<%= @phpmailer_host %>",
+    "phpmailer_username" => "<%= @phpmailer_username %>",
+    "phpmailer_password" => "<%= @phpmailer_password %>",
+    "phpmailer_from" => "<%= @site_email %>",
+    "phpmailer_from_name" => "<%= @site_name %>",
+    "phpmailer_reply_to" => "<%= @site_email %>",
+    "phpmailer_bcc" => "<%= @phpmailer_bcc %>",   // if set, send a copy of all emails to this address
 
-    "admin_email" => "support@example.com",
+    "admin_email" => "<%= @site_email %>",
     "password_salt" => "abc123",
     "unsubscribe_salt" => "abc123",
     "google_analytics_account" => "UA-12345678-0",  // _setAccount

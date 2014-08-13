@@ -15,18 +15,18 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 * Install Ruby and sass (for CSS building)
 * Build application with `grunt build`
 * Update .htaccess
+* Initialise MySQL database
 
 ### Still to complete
 
 * Configure `config.php` as necessary
-* Initialise MySQL database
 * Setup default cron jobs
 * Allow `config` templates to be loaded from an external SVN/Git repository (e.g. templates, images)
 
 ### TODO
 
 * Use Capistrano for deployment/config/installing gems instead of [homegrown solution](https://github.com/soundasleep/chef_bundler)
-* Allow databases to be upgraded automatically with new releases (depends on [#115](http://redmine.jevon.org/issues/115))
+* Allow databases to be upgraded automatically with new releases (depends on [#115](http://redmine.jevon.org/issues/115)) - currently the database is only installed once
 
 See also [openclerk-chef](https://github.com/soundasleep/openclerk-chef) which provides a complete Chef repository and installation instructions that use this cookbook directly.
 

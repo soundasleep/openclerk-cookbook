@@ -49,7 +49,7 @@ mysql_database_user node['openclerk']['db_username'] do
   )
   password node['openclerk']['db_password']
   database_name node['openclerk']['database']
-  privileges [:select, :update, :insert, :create, :delete]
+  privileges [:all]
   action :grant
 end
 

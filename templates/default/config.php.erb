@@ -9,12 +9,12 @@ function get_site_config_ext() {
     // framework-specific
     "site_name" => "Openclerk",
     "site_email" => "support@example.com",
-    "openid_host" => "<%= @params[:server_name] %>",
-    "absolute_url" => "http://<%= @params[:server_name] %>",
+    "openid_host" => "<%= @server_name %>",
+    "absolute_url" => "http://<%= @server_name %>",
 
-    "database_url" => "mysql:host=localhost;dbname=<%= @params[:database] %>",
-    "database_username" => "<%= @params[:db_username] %>",
-    "database_password" => "<%= @params[:db_password] %>",
+    "database_url" => "mysql:host=localhost;dbname=<%= @database %>",
+    "database_username" => "<%= @db_username %>",
+    "database_password" => "<%= @db_password %>",
     "database_timezone" => false,
 
     "phpmailer_host" => "mail.example.com",
@@ -29,7 +29,7 @@ function get_site_config_ext() {
     "password_salt" => "abc123",
     "unsubscribe_salt" => "abc123",
     "google_analytics_account" => "UA-12345678-0",  // _setAccount
-    "google_analytics_domain" => "localhost.openclerk.org", // _setDomainName
+    "google_analytics_domain" => "<%= @server_name %>", // _setDomainName
 
     // site-specific config values go here
     "automated_key" => "abc123",

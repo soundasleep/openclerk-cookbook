@@ -122,4 +122,5 @@ template node['openclerk']['path'] + "/config/config.php" do
   mode 0755
   owner 'root'
   group 'root'
+  variables node['openclerk']
 end

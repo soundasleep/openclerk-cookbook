@@ -20,12 +20,23 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 * Configure `config.php` as necessary
 * Initialise MySQL database
 * Setup default cron jobs
+* Allow `config` templates to be loaded from an external SVN/Git repository (e.g. templates, images)
 
 ### TODO
 
 * Use Capistrano for deployment/config/installing gems instead of [homegrown solution](https://github.com/soundasleep/chef_bundler)
 
 See also [openclerk-chef](https://github.com/soundasleep/openclerk-chef) which provides a complete Chef repository and installation instructions that use this cookbook directly.
+
+Dependencies
+------------
+
+The most recent cookbook dependencies are listed in [openclerk-chef/Cheffile](https://github.com/soundasleep/openclerk-chef/blob/master/Cheffile). These include:
+
+* [openclerk](https://github.com/soundasleep/openclerk-cookbook)
+* [composer](https://github.com/Morphodo/chef-composer)
+* [grunt_cookbook](https://github.com/MattSurabian/grunt_cookbook)
+* [chef_bundler](https://github.com/soundasleep/chef_bundler)
 
 Requirements
 ------------

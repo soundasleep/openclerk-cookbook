@@ -26,6 +26,7 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 ### TODO
 
 * Use Capistrano for deployment/config/installing gems instead of [homegrown solution](https://github.com/soundasleep/chef_bundler)
+* Allow databases to be upgraded automatically with new releases (depends on [#115](http://redmine.jevon.org/issues/115))
 
 See also [openclerk-chef](https://github.com/soundasleep/openclerk-chef) which provides a complete Chef repository and installation instructions that use this cookbook directly.
 

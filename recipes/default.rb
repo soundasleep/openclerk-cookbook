@@ -130,12 +130,12 @@ cookbook_file ".htaccess.patch" do
 end
 
 # reset any changes to .htaccess
-cmd = "svn revert site/.htaccess"
-execute cmd do
+execute "htaccess-revert" do
+  command "svn revert site/.htaccess"
   cwd node['openclerk']['path']
 end
 
-cmd = "patch --force site/.htaccess .htaccess.patch"
-execute cmd do
+execute "htaccess-patch" do
+  command "patch --force site/.htaccess .htaccess.patch"
   cwd node['openclerk']['path']
 end

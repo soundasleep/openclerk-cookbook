@@ -14,6 +14,7 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 * Install and configure Grunt
 * Install Ruby and sass (for CSS building)
 * Build application with `grunt build`
+* Update .htaccess
 
 ### Still to complete
 

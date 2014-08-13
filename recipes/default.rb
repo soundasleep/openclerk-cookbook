@@ -108,6 +108,14 @@ grunt_cookbook_grunt node['openclerk']['path'] do
   task "build"
 end
 
+directory node['openclerk']['path'] + "/config" do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  recursive true
+end
+
 # reconfigure config.php
 template node['openclerk']['path'] + "/config/config.php" do
   source "config.php.erb"

@@ -9,8 +9,8 @@ function get_site_config_ext() {
     // framework-specific
     "site_name" => "Openclerk",
     "site_email" => "support@example.com",
-    "openid_host" => "<%= @server_name %>",
-    "absolute_url" => "http://<%= @server_name %>",
+    "openid_host" => "<%= @server_remote_name %>",
+    "absolute_url" => "http://<%= @server_remote_name %>/",
 
     "database_url" => "mysql:host=localhost;dbname=<%= @database %>",
     "database_username" => "<%= @db_username %>",

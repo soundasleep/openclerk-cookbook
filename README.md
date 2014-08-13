@@ -12,10 +12,10 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 * Set up Apache vhost
 * Install and configure Composer
 * Install and configure Grunt
+* Install Ruby and sass (for CSS building)
 
 ### Still to complete
 
-* Install Ruby and sass (for CSS building)
 * Build application with `grunt build`
 * Initialise MySQL database
 * Configure `config.php` as necessary
@@ -23,7 +23,7 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 
 ### TODO
 
-* Use Capistrano for deployment/config/installing gems instead of homegrown solution
+* Use Capistrano for deployment/config/installing gems instead of [homegrown solution](https://github.com/soundasleep/chef_bundler)
 
 See also [openclerk-chef](https://github.com/soundasleep/openclerk-chef) which provides a complete Chef repository and installation instructions that use this cookbook directly.
 

@@ -11,7 +11,12 @@ include_recipe "apache2"
 include_recipe "mysql::client"
 include_recipe "mysql::server"
 include_recipe "php"
-include_recipe "php::module_mysql"
+
+# install PHP module dependencies with apt (replace deprecated php::module_XXX)
+package "php5-gd"
+package "php5-curl"
+package "php5-mysql"
+
 include_recipe "apache2::mod_php5"
 include_recipe "nodejs"
 include_recipe "grunt_cookbook"

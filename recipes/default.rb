@@ -102,8 +102,16 @@ grunt_cookbook_npm node['openclerk']['path'] do
   action :install
 end
 
-# and build with grunt
+# build with grunt
 grunt_cookbook_grunt node['openclerk']['path'] do
   action :task
   task "build"
+end
+
+# reconfigure config.php
+template node['openclerk']['path'] + "/config/config.php" do
+  source "config.php.erb"
+  mode 0755
+  owner 'root'
+  group 'root'
 end

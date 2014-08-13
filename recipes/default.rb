@@ -139,3 +139,9 @@ execute "htaccess-patch" do
   command "patch --force site/.htaccess .htaccess.patch"
   cwd node['openclerk']['path']
 end
+
+execute "mysql-init-database" do
+  command "mysql --user=#{node['openclerk']['db_username']} --password=#{node['openclerk']['db_password']} #{node['openclerk']['database']} < inc/database.sql"
+  cwd node['openclerk']['path']
+  not_if "mysql --user=#{node['openclerk']['db_username']} --password=#{node['openclerk']['db_password']} #{node['openclerk']['database']} --execute='SELECT COUNT(*) FROM users;'"
+end

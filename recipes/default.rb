@@ -167,9 +167,46 @@ directory node['openclerk']['path'] + "/output" do
 end
 
 # set up cron jobs
-cron "batch_run" do
+cron "batch_run-1" do
   user "automated"
   minute "*/1"
-  command "cd " + node['openclerk']['path'] + "/batch && php -f " + node['openclerk']['path'] + "/batch/batch_run.php " + node['openclerk']['automated_key'] + " 2&>1 > " + node['openclerk']['path'] + "/output/run.html"
+  command "cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run.html"
+  action :create
+end
+
+cron "batch_run-2" do
+  user "automated"
+  minute "*/1"
+  command "sleep 20 && cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run.html"
+  action :create
+end
+
+cron "batch_run-3" do
+  user "automated"
+  minute "*/1"
+  command "sleep 40 && cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run.html"
+  action :create
+end
+
+cron "batch_queue" do
+  user "automated"
+  minute "*/10"
+  command "cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_queue.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/queue.html"
+  action :create
+end
+
+cron "batch_external" do
+  user "automated"
+  minute "0"
+  hour "*/1"
+  command "cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_external.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/external.html"
+  action :create
+end
+
+cron "batch_statistics" do
+  user "automated"
+  minute "30"
+  hour "*/1"
+  command "cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_statistics.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/statistics.html"
   action :create
 end

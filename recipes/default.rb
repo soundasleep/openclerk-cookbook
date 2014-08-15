@@ -170,21 +170,21 @@ end
 cron "batch_run-1" do
   user "automated"
   minute "*/1"
-  command "cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run.html"
+  command "cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run-1.html"
   action :create
 end
 
 cron "batch_run-2" do
   user "automated"
   minute "*/1"
-  command "sleep 20 && cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run.html"
+  command "sleep 20 && cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run-2.html"
   action :create
 end
 
 cron "batch_run-3" do
   user "automated"
   minute "*/1"
-  command "sleep 40 && cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run.html"
+  command "sleep 40 && cd #{node['openclerk']['path']}/batch && php -f #{node['openclerk']['path']}/batch/batch_run.php #{node['openclerk']['automated_key']} 2>&1 > #{node['openclerk']['path']}/output/run-3.html"
   action :create
 end
 

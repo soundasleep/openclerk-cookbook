@@ -145,3 +145,31 @@ execute "mysql-init-database" do
   cwd node['openclerk']['path']
   not_if "mysql --user=#{node['openclerk']['db_username']} --password=#{node['openclerk']['db_password']} #{node['openclerk']['database']} --execute='SELECT COUNT(*) FROM users;'"
 end
+
+# create a user to run these automated jobs
+user "automated" do
+  comment "Automated user"
+  action :create
+end
+
+group "automated" do
+  action :create
+  members "automated"
+  append true
+end
+
+directory node['openclerk']['path'] + "/output" do
+  owner "automated"
+  group "automated"
+  mode "0755"
+  action :create
+  recursive true
+end
+
+# set up cron jobs
+cron "batch_run" do
+  user "automated"
+  minute "*/1"
+  command "cd " + node['openclerk']['path'] + "/batch && php -f " + node['openclerk']['path'] + "/batch/batch_run.php " + node['openclerk']['automated_key'] + " 2&>1 > " + node['openclerk']['path'] + "/output/run.html"
+  action :create
+end

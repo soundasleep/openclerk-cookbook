@@ -149,6 +149,7 @@ end
 # create a user to run these automated jobs
 user "automated" do
   comment "Automated user"
+  home node['openclerk']['path'] + "/output"
   action :create
 end
 

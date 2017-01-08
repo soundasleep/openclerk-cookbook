@@ -20,6 +20,7 @@ This cookbook allows one to install [Openclerk](http://openclerk.org) on a Chef 
 
 ### TODO
 
+* Upgrade to Chef 12+: getting error message `Error executing action `create` on resource 'mysql_service[default]'`
 * Allow `config` templates to be loaded from an external SVN/Git repository (e.g. templates, images)
 * Use Capistrano for deployment/config/installing gems instead of [homegrown solution](https://github.com/soundasleep/chef_bundler)
 * Allow databases to be upgraded automatically with new releases (depends on [#115](http://redmine.jevon.org/issues/115)) - currently the database is only installed once
